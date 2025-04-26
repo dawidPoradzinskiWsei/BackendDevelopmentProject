@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj": {}
+    "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj": {}
   },
   "projects": {
-    "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj": {
+    "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\sirkr\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\obj\\",
+        "projectPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
+        "outputPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sirkr\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -36,7 +36,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.200"
       },
@@ -54,18 +54,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.203, 9.0.203]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

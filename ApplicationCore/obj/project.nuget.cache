@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NGv9XbhyWn0=",
+  "dgSpecHash": "BbKOuSf4+HQ=",
   "success": true,
-  "projectFilePath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\sirkr\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.203\\microsoft.net.sdk.compilers.toolset.9.0.203.nupkg.sha512"
-  ],
+  "projectFilePath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
