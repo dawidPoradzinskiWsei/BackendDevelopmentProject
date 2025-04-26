@@ -22,29 +22,53 @@
 
   # Info zwrotne
 
-  1. Stworzyłem ogólnego sln oraz dodałem połączenie core -> infr -> webapi
-  1. Nie korzysdtałem z GameStatistics, bo nie mogłem tego znaleźć na podglądzie pobieranych danych. Jeśli potrzebne, to daj znać i dodam
+  1. Stworzyłem ogólnego sln
+  2. Stworzyłem projekt Infrasturucture i dodałem do niego połączenie core
+  3. Zaimplementowanie IGenericRepository oraz IVideoGameRepository na klasy
+  4. Zmapowałem `VideoGame` na bazę danych, ale nie wszystko działa (Patrz `TODO 1.`)
+  5. Nie korzystałem z GameStatistics, bo nie mogłem tego znaleźć na podglądzie pobieranych danych. Jeśli potrzebne, to daj znać i dodam
+  6. Aplikacja na razie nie ma użytkowników (Patrz `TODO 2.`)
+  7. Dodalem połączenie z sqlite, aby móc na razie łatwo destować bez osobnych baz
+  8. Stworzyłem aplikacje WebApi, połączyłem z Infrastructure i jedynie dodałem do niej DbContext z VideoGame
+  
 
   # TODO
 
-  1. Potrzebuję stworzenie nowego modelu UserDetails z interface IIdentity<string> oraz defaultowym konstruktorem, aby móc dodać użytkowników do aplikacji
-  2. Potrzebuję przerzucenia Title,Platform,CoverImageUrl do osobnych klas, ponieważ EF wywala błąd, że nie mogę stworzyć osobnej tabeli tylko z stringa
+  1. Potrzebuję przerzucenia Title,Platform,CoverImageUrl do osobnych klas, ponieważ EF wywala błąd, że nie mogę stworzyć osobnej tabeli tylko z stringa
+  2. Potrzebuję stworzenie nowego modelu UserDetails z interface IIdentity<string> oraz defaultowym konstruktorem, aby móc dodać użytkowników do aplikacji
+  3. Zrobienia w ApplicationCore w folderze Interfaces dwóch folderów. AdminService oraz userService. Każdy z nich ma mieć swój interface i klasę
+  4. W interface tworzysz jakie rzeczy mają dziać się w danym serwisie. np:
+  ```
+  IEnumerable<VideoGame> findAllVideoGames();
+  VideoGame? findVideoGameById(int id);
+  VideoGame? findVideoGameByTitle(string title);
+  ```
+  5. Następnie w klasie implementujesz dany interface
+  *WAŻNE*
+  W danej klasie musisz dodać wstrzyknięcie potrzebych repositoriów, które wcześniej stworzyłeś, czyli np:
+  ```
+  private readonly IVideoGameRepostiory<VideoGame, int> _videoRepository;
+  
+  public UserService(IGenericRepository<VideoGame, int> videoRepository )
+  {
+    _videoRepository = videoRepostiory,
+  }
+  ```
+
+ Oczywiście tutaj nie pracujesz na prawdziwych danych, ale pokazujesz co chcesz osiągnąć, a ja potem zrobię tego implementację, aby serio robiło rzeczy w bazie danych
+
+ ```
+ public VideoGame FindVideoGameById(int id)
+ {
+  return _videoRepository.FindById() // <-- nazwy brane z I...Repository w folderze Commons / Repository
+ }
+ ```
+ 6. Możesz zacząć bawić się WebAPI. Dodać do niego kontrolery, co ma być zwracane pod jakimi linkami itd. Fajnie, gdybyś w readme.md wypisywał, co jaki link przyjmuje i co zwraca
+ 7. Możesz ogarnąć do webAPI co było dawane na insturkcjach z labów 5 oraz 6, bo ktoś musi zrobić tokeny JWT
   
 
 # Infrastructure
 
-### 26.04.2025 DP
-
-  # Zrobione
-
-  1. Stworzenie modelu do bazy danych na podstawie VideoGame:  Genre, Publisher, Developer jako osobne tabele. Reszta jako pola w VideoGame
-
 # WebAPI
-
-  # Zrobione
-
-  1. Stworzenie projektu WebAPI
-  2. Dodanie do niego DBContext, aby móc zrobić migracje na infrastructure
-  3. Dodanie folderu sqlite oraz zmian w appsettings, aby baza była na razie na sqlite
 
 # Tests
