@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
+      "projectUniqueName": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj",
       "projectName": "ApplicationCore",
-      "projectPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
+      "projectPath": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj",
       "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-      "outputPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\obj\\",
+      "outputPath": "D:\\Programowanie\\csharp\\ApplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"

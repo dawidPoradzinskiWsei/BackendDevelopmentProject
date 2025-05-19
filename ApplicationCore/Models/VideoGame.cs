@@ -5,8 +5,8 @@ namespace ApplicationCore.Models;
 public class VideoGame : IIdentity<int>
 {
     public int Id { get; set; } 
-    public string Title { get; set; } 
-    public string Platform { get; set; } 
+    public GameTitle Title { get; set; } 
+    public GamePlatform Platform { get; set; } 
     public GameGenre Genre { get; set; } 
     public GamePublisher Publisher { get; set; } 
     public GameDeveloper Developer { get; set; } 

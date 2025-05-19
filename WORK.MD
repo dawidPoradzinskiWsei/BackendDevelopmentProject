@@ -34,8 +34,8 @@
 
   # TODO
 
-  1. Potrzebuję przerzucenia Title,Platform,CoverImageUrl do osobnych klas, ponieważ EF wywala błąd, że nie mogę stworzyć osobnej tabeli tylko z stringa
-  2. Potrzebuję stworzenie nowego modelu UserDetails z interface IIdentity<string> oraz defaultowym konstruktorem, aby móc dodać użytkowników do aplikacji
+  ~~1. Potrzebuję przerzucenia Title,Platform,CoverImageUrl do osobnych klas, ponieważ EF wywala błąd, że nie mogę stworzyć osobnej tabeli tylko z stringa~~
+  ~~2. Potrzebuję stworzenie nowego modelu UserDetails z interface IIdentity<string> oraz defaultowym konstruktorem, aby móc dodać użytkowników do aplikacji~~
   3. Zrobienia w ApplicationCore w folderze Interfaces dwóch folderów. AdminService oraz userService. Każdy z nich ma mieć swój interface i klasę
   4. W interface tworzysz jakie rzeczy mają dziać się w danym serwisie. np:
   ```
@@ -67,8 +67,11 @@
  7. Możesz ogarnąć do webAPI co było dawane na insturkcjach z labów 5 oraz 6, bo ktoś musi zrobić tokeny JWT
   
 
-# Infrastructure
+### 19.05.2025
 
-# WebAPI
+  # Info zwrotne
 
-# Tests
+    Stworzyłem podpięcie JWT i w WebAPI/Controllers/TestJwt... masz pokazane, jak można z tego korzystać.
+    Na moodle możesz zobaczyć jak możesz sprawdzać role przy pomocy tego tokenu
+
+    Dodatkowo dodałem swaggera, gdzie możesz bardziej w łatwy sposób testować kontrolery, które zrobisz (twój wybór, czy minimalApi czy zwykłe)

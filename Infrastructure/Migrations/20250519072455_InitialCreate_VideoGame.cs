@@ -38,6 +38,19 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GamePlatform",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GamePlatform", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GamePublisher",
                 columns: table => new
                 {
@@ -51,13 +64,26 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GameTitle",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameTitle", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "VideoGames",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    Platform = table.Column<string>(type: "TEXT", nullable: false),
+                    TitleId = table.Column<int>(type: "INTEGER", nullable: false),
+                    PlatformId = table.Column<int>(type: "INTEGER", nullable: false),
                     GenreId = table.Column<int>(type: "INTEGER", nullable: false),
                     PublisherId = table.Column<int>(type: "INTEGER", nullable: false),
                     DeveloperId = table.Column<int>(type: "INTEGER", nullable: false),
@@ -87,9 +113,21 @@ namespace Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_VideoGames_GamePlatform_PlatformId",
+                        column: x => x.PlatformId,
+                        principalTable: "GamePlatform",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_VideoGames_GamePublisher_PublisherId",
                         column: x => x.PublisherId,
                         principalTable: "GamePublisher",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_VideoGames_GameTitle_TitleId",
+                        column: x => x.TitleId,
+                        principalTable: "GameTitle",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -105,9 +143,19 @@ namespace Infrastructure.Migrations
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_VideoGames_PlatformId",
+                table: "VideoGames",
+                column: "PlatformId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_VideoGames_PublisherId",
                 table: "VideoGames",
                 column: "PublisherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VideoGames_TitleId",
+                table: "VideoGames",
+                column: "TitleId");
         }
 
         /// <inheritdoc />
@@ -123,7 +171,13 @@ namespace Infrastructure.Migrations
                 name: "GameGenre");
 
             migrationBuilder.DropTable(
+                name: "GamePlatform");
+
+            migrationBuilder.DropTable(
                 name: "GamePublisher");
+
+            migrationBuilder.DropTable(
+                name: "GameTitle");
         }
     }
 }

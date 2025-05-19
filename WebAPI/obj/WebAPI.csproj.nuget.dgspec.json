@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programowanie\\backend\\RealWork\\WebAPI\\WebAPI.csproj": {}
+    "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj": {
+    "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj",
+        "projectPath": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\obj\\",
+        "outputPath": "D:\\Programowanie\\csharp\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\Programowanie\\backend\\RealWork\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\backend\\RealWork\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Programowanie\\backend\\RealWork\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\backend\\RealWork\\Infrastructure\\obj\\",
+        "outputPath": "D:\\Programowanie\\csharp\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -85,8 +85,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "D:\\Programowanie\\backend\\RealWork\\ApplicationCore\\ApplicationCore.csproj"
+              "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj"
               }
             }
           }
@@ -109,25 +109,25 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite.Core": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.5, )"
             }
           },
           "imports": [
@@ -150,14 +150,14 @@
         }
       }
     },
-    "D:\\Programowanie\\backend\\RealWork\\WebAPI\\WebAPI.csproj": {
+    "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\backend\\RealWork\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\Programowanie\\backend\\RealWork\\WebAPI\\WebAPI.csproj",
+        "projectPath": "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\backend\\RealWork\\WebAPI\\obj\\",
+        "outputPath": "D:\\Programowanie\\csharp\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -172,8 +172,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Programowanie\\backend\\RealWork\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "D:\\Programowanie\\backend\\RealWork\\Infrastructure\\Infrastructure.csproj"
+              "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -194,6 +194,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "JWT": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.2, )"
@@ -202,7 +210,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
             }
           },
           "imports": [

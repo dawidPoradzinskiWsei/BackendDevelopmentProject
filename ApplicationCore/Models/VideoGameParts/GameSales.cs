@@ -1,7 +1,3 @@
-using ApplicationCore.Commons.Repository;
-
-namespace ApplicationCore.Models;
-
 public class GameSales
 {
     public decimal TotalSales { get; set; } 

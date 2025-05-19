@@ -9,9 +9,10 @@ public class VideoGameConfiguration : IEntityTypeConfiguration<VideoGame>
         // Główna tabela VideoGame
 
         builder.ToTable("VideoGames");
-        builder.HasKey(vg => vg.Id);
-        // builder.HasOne(v => v.Title).WithMany().HasForeignKey("TitleId");
-        // builder.HasOne(v => v.Platform).WithMany().HasForeignKey("PlatformId");
+        
+        builder.HasKey(v => v.Id);
+        builder.HasOne(v => v.Title).WithMany().HasForeignKey("TitleId");
+        builder.HasOne(v => v.Platform).WithMany().HasForeignKey("PlatformId");
         builder.HasOne(v => v.Genre).WithMany().HasForeignKey("GenreId");
         builder.HasOne(v => v.Publisher).WithMany().HasForeignKey("PublisherId");
         builder.HasOne(v => v.Developer).WithMany().HasForeignKey("DeveloperId");

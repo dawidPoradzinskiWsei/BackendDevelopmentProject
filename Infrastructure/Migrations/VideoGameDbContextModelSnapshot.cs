@@ -14,7 +14,7 @@ namespace Infrastructure.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.4");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
 
             modelBuilder.Entity("ApplicationCore.Models.GameDeveloper", b =>
                 {
@@ -83,9 +83,8 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime?>("LastUpdate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Platform")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("PlatformId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("PublisherId")
                         .HasColumnType("INTEGER");
@@ -93,9 +92,8 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TitleId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -103,9 +101,43 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("GenreId");
 
+                    b.HasIndex("PlatformId");
+
                     b.HasIndex("PublisherId");
 
+                    b.HasIndex("TitleId");
+
                     b.ToTable("VideoGames", (string)null);
+                });
+
+            modelBuilder.Entity("GamePlatform", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GamePlatform");
+                });
+
+            modelBuilder.Entity("GameTitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GameTitle");
                 });
 
             modelBuilder.Entity("ApplicationCore.Models.VideoGame", b =>
@@ -122,13 +154,25 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("GamePlatform", "Platform")
+                        .WithMany()
+                        .HasForeignKey("PlatformId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ApplicationCore.Models.GamePublisher", "Publisher")
                         .WithMany()
                         .HasForeignKey("PublisherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("ApplicationCore.Models.GameSales", "Sales", b1 =>
+                    b.HasOne("GameTitle", "Title")
+                        .WithMany()
+                        .HasForeignKey("TitleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("GameSales", "Sales", b1 =>
                         {
                             b1.Property<int>("VideoGameId")
                                 .HasColumnType("INTEGER");
@@ -165,10 +209,14 @@ namespace Infrastructure.Migrations
 
                     b.Navigation("Genre");
 
+                    b.Navigation("Platform");
+
                     b.Navigation("Publisher");
 
                     b.Navigation("Sales")
                         .IsRequired();
+
+                    b.Navigation("Title");
                 });
 #pragma warning restore 612, 618
         }
