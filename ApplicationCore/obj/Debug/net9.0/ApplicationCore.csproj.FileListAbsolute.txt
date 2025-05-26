@@ -1,0 +1,13 @@
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\bin\Debug\net9.0\ApplicationCore.deps.json
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\bin\Debug\net9.0\ApplicationCore.dll
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\bin\Debug\net9.0\ApplicationCore.pdb
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.AssemblyInfoInputs.cache
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.AssemblyInfo.cs
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.csproj.CoreCompileInputs.cache
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.sourcelink.json
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.dll
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\refint\ApplicationCore.dll
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.pdb
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ref\ApplicationCore.dll
+D:\Users\sirkr\RiderProjects\BackendDevelopmentProject\ApplicationCore\obj\Debug\net9.0\ApplicationCore.csproj.AssemblyReference.cache

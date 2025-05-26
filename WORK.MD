@@ -17,6 +17,7 @@
     # pisz mes jakbyś już dodał mi jakąś robote bo na gita nie wchodze tak czesto a powiadomienie na mesie zauwaze szybciej.
     
     # I nwm jakos zle mi sie klonuje z tego gita chyba jakby nie robi mi sln jak dodaje projekt probowalem ta komende co mi dales 
+      
 
 ### 26.04.2025 DP
 

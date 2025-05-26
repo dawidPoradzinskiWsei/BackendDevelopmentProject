@@ -29,5 +29,20 @@ namespace ApplicationCore.Interfaces.UserService
                 .FindAll()
                 .FirstOrDefault(v => v.Title.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
         }
+        public VideoGame CreateVideoGame(VideoGame game)
+        {
+            return _videoRepository.Add(game);
+        }
+
+        public void UpdateVideoGame(int id, VideoGame game)
+        {
+            _videoRepository.Update(id, game);
+        }
+
+        public void DeleteVideoGame(int id)
+        {
+            _videoRepository.RemoveById(id);
+        }
+
     }
 }

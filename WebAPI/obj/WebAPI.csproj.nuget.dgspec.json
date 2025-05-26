@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj": {}
+    "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj": {
+    "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\csharp\\ApplicationCore\\obj\\",
+        "projectPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\sirkr\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sirkr\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,21 +65,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\csharp\\Infrastructure\\obj\\",
+        "projectPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\sirkr\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sirkr\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -85,8 +91,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "D:\\Programowanie\\csharp\\ApplicationCore\\ApplicationCore.csproj"
+              "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\ApplicationCore\\ApplicationCore.csproj"
               }
             }
           }
@@ -146,21 +152,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj": {
+    "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\Programowanie\\csharp\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\csharp\\WebAPI\\obj\\",
+        "projectPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\sirkr\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sirkr\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -172,8 +178,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "D:\\Programowanie\\csharp\\Infrastructure\\Infrastructure.csproj"
+              "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\Users\\sirkr\\RiderProjects\\BackendDevelopmentProject\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -236,7 +242,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

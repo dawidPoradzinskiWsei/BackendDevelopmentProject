@@ -46,6 +46,7 @@ public class AuthenticationController : ControllerBase
             .AddClaim(JwtRegisteredClaimNames.Email, user.Email)
             .AddClaim(JwtRegisteredClaimNames.Exp, DateTimeOffset.UtcNow.AddMinutes(5).ToUnixTimeSeconds())
             .AddClaim(JwtRegisteredClaimNames.Jti, Guid.NewGuid())
+            .AddClaim(System.Security.Claims.ClaimTypes.Role, "Admin")
             .Audience(_jwtSettings.Audience)
             .Issuer(_jwtSettings.Issuer)
             .Encode();

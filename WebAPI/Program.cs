@@ -1,5 +1,7 @@
+using ApplicationCore.Interfaces.AccountService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,7 +55,7 @@ builder.Services.AddSwaggerGen(opt =>
     });
 
 });
-
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
