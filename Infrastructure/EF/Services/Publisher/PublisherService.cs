@@ -1,8 +1,8 @@
 using ApplicationCore.Commons.Interfaces.Repositories;
-using ApplicationCore.Commons.Interfaces.Services.Publisher;
+using ApplicationCore.Commons.Interfaces.Services.Developer;
 using ApplicationCore.Commons.Models.Parts;
 
-public class PublisherService : IPublisherService
+public class PublisherService : IDeveloperPublisherService<GamePublisher>
 {
 
     private readonly IGenericRepository<GamePublisher, int> _repo;
