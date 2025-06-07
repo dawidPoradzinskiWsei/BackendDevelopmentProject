@@ -1067,11 +1067,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programowanie\\dotnetProjekt\\Tests\\Tests.csproj",
+      "projectUniqueName": "D:\\Programowanie\\DrugiSposobDotnet\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "D:\\Programowanie\\dotnetProjekt\\Tests\\Tests.csproj",
+      "projectPath": "D:\\Programowanie\\DrugiSposobDotnet\\Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-      "outputPath": "D:\\Programowanie\\dotnetProjekt\\Tests\\obj\\",
+      "outputPath": "D:\\Programowanie\\DrugiSposobDotnet\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1086,8 +1086,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Programowanie\\dotnetProjekt\\WebAPI\\WebAPI.csproj": {
-              "projectPath": "D:\\Programowanie\\dotnetProjekt\\WebAPI\\WebAPI.csproj"
+            "D:\\Programowanie\\DrugiSposobDotnet\\WebAPI\\WebAPI.csproj": {
+              "projectPath": "D:\\Programowanie\\DrugiSposobDotnet\\WebAPI\\WebAPI.csproj"
             }
           }
         }

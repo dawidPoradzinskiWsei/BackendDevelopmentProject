@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programowanie\\dotnetProjekt\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\Programowanie\\DrugiSposobDotnet\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Programowanie\\dotnetProjekt\\ApplicationCore\\ApplicationCore.csproj": {
+    "D:\\Programowanie\\DrugiSposobDotnet\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\dotnetProjekt\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "D:\\Programowanie\\DrugiSposobDotnet\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "D:\\Programowanie\\dotnetProjekt\\ApplicationCore\\ApplicationCore.csproj",
+        "projectPath": "D:\\Programowanie\\DrugiSposobDotnet\\ApplicationCore\\ApplicationCore.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\dotnetProjekt\\ApplicationCore\\obj\\",
+        "outputPath": "D:\\Programowanie\\DrugiSposobDotnet\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\Programowanie\\dotnetProjekt\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Programowanie\\DrugiSposobDotnet\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programowanie\\dotnetProjekt\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Programowanie\\DrugiSposobDotnet\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Programowanie\\dotnetProjekt\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "D:\\Programowanie\\DrugiSposobDotnet\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "D:\\Programowanie\\dotnetProjekt\\Infrastructure\\obj\\",
+        "outputPath": "D:\\Programowanie\\DrugiSposobDotnet\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -85,8 +85,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Programowanie\\dotnetProjekt\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "D:\\Programowanie\\dotnetProjekt\\ApplicationCore\\ApplicationCore.csproj"
+              "D:\\Programowanie\\DrugiSposobDotnet\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "D:\\Programowanie\\DrugiSposobDotnet\\ApplicationCore\\ApplicationCore.csproj"
               }
             }
           }

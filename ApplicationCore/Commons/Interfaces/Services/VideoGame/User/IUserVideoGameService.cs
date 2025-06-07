@@ -6,5 +6,5 @@ namespace ApplicationCore.Commons.Interfaces.Services.VideoGame.User;
 public interface IUserVideoGameService
 {
     Task<VideoGameResponseDto?> GetByIdAsync(int id);
-    Task<IPagedList<VideoGameResponseDto>> GetFilteredAsync(IPaginationParameters parameters);
+    Task<PagedList<VideoGameResponseDto>> GetFilteredAsync(VideoGameParameters parameters);
 }

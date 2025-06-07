@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ijxR8jfmMXE=",
+  "dgSpecHash": "KhaFOWtVQyc=",
   "success": true,
-  "projectFilePath": "D:\\Programowanie\\dotnetProjekt\\Tests\\Tests.csproj",
+  "projectFilePath": "D:\\Programowanie\\DrugiSposobDotnet\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dawid\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\Dawid\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.2\\microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
