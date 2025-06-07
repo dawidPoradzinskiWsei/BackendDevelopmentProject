@@ -11,8 +11,8 @@ public interface IGenericRepository<T, K> where T : IIdentity<K> where K : IComp
     Task<List<T>> FindAllAsync();
     Task AddRangeAsync(IEnumerable<T> o);
     Task<T> AddAsync(T o);
-    Task<bool> RemoveByIdAsync(K id);
-    Task<bool> UpdateByIdAsync(K id, T o);
+    Task RemoveAsync(T entity);
+    Task UpdateAsync(T entity);
     IQueryable<T> FindBySpecification(ISpecification<T> specification = null);
     Task<int> SaveChangesAsync();
     Task<T> GetOrCreateAsync(Expression<Func<T, bool>> predicate, T newEntity);
