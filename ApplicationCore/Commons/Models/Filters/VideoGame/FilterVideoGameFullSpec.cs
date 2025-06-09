@@ -7,27 +7,27 @@ public class FilterVideoGameFullSpec : VideoGameBaseIncludesSpec
     {
         if (!string.IsNullOrEmpty(parameters.Title))
         {
-            AndAlso(x => x.Title.Name.Contains(parameters.Title));
+            AndAlso(x => x.Title.Name.ToUpper().Contains(parameters.Title.ToUpper()));
         }
 
         if (!string.IsNullOrEmpty(parameters.Console))
         {
-            AndAlso(x => x.Console.Name.Contains(parameters.Console));
+            AndAlso(x => x.Console.Name.ToUpper().Contains(parameters.Console.ToUpper()));
         }
 
         if (!string.IsNullOrEmpty(parameters.Genre))
         {
-            AndAlso(x => x.Genre.Name.Contains(parameters.Genre));
+            AndAlso(x => x.Genre.Name.ToUpper().Contains(parameters.Genre.ToUpper()));
         }
 
         if (!string.IsNullOrEmpty(parameters.Developer))
         {
-            AndAlso(x => x.Developer.Name.Contains(parameters.Developer));
+            AndAlso(x => x.Developer.Name.ToUpper().Contains(parameters.Developer.ToUpper()));
         }
 
         if (!string.IsNullOrEmpty(parameters.Publisher))
         {
-            AndAlso(x => x.Publisher.Name.Contains(parameters.Publisher));
+            AndAlso(x => x.Publisher.Name.ToUpper().Contains(parameters.Publisher.ToUpper()));
         }
 
         SetOrdering(parameters.OrderBy, parameters.OrderDirection);
@@ -46,6 +46,10 @@ public class FilterVideoGameFullSpec : VideoGameBaseIncludesSpec
 
         switch (orderBy.ToLower())
         {
+            case "id":
+                if (asc) OrderBy = vg => vg.Id;
+                else OrderByDescending = vg => vg.Id;
+                break;
             case "title":
                 if (asc) OrderBy = vg => vg.Title.Name;
                 else OrderByDescending = vg => vg.Title.Name;

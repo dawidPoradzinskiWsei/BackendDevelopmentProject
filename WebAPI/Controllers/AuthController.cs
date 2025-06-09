@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 [ApiController]
 [Route("v1/[controller]")]
+[SwaggerTag("1")]
 public class AuthController : ControllerBase
 {
 

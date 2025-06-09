@@ -29,10 +29,22 @@ public static class Configure
         services
             .AddDbContext<VideoGameDbContext>(options =>
             {
-                options.UseSqlite(configuration.GetConnectionString("Sqlite"));
+                var dbType = configuration.GetValue<string>("DatabaseType").ToLower();
+
+                if (dbType == "sqlite")
+                {
+                    options.UseSqlite(configuration.GetConnectionString("Sqlite"));
+                }
+                else if (dbType == "sqlserver")
+                {
+                    options.UseSqlServer(configuration.GetConnectionString("MySql"));
+
+                }
+
+
                 options.EnableSensitiveDataLogging(false);
                 options.LogTo(_ => { });
-            })               
+            })
             .AddIdentity<UserEntity, UserRole>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -42,6 +54,16 @@ public static class Configure
             })
             .AddEntityFrameworkStores<VideoGameDbContext>()
             .AddDefaultTokenProviders();
+
+        using (var scope = services.BuildServiceProvider().CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<VideoGameDbContext>();
+            if (!dbContext.Database.EnsureCreated())
+            {
+                dbContext.Database.Migrate();
+            }
+
+        }
     }
 
     public static void ConfigureJWT(this IServiceCollection services, JwtSettings jwtSettings)
@@ -83,7 +105,7 @@ public static class Configure
                         ValidIssuer = jwtSettings.Issuer,
                         ValidAudience = jwtSettings.Audience,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Secret)),
-                        ClockSkew = TimeSpan.FromSeconds(60)
+                        ClockSkew = TimeSpan.FromMinutes(jwtSettings.ExpirationMinutes)
                     };
                 }
 

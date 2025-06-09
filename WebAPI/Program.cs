@@ -1,18 +1,23 @@
+using System.Text.Json.Serialization;
 using ApplicationCore.Commons.Interfaces.Repositories;
 using ApplicationCore.Commons.Interfaces.Services;
 using ApplicationCore.Commons.Interfaces.Services.Developer;
 using ApplicationCore.Commons.Interfaces.Services.VideoGame.Admin;
-using ApplicationCore.Commons.Interfaces.Services.VideoGame.User;
 using ApplicationCore.Commons.Models;
 using ApplicationCore.Commons.Models.Parts;
 using ApplicationCore.Configuration;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // kontrolery
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 
 // baza
 
@@ -25,6 +30,8 @@ builder.Configuration.GetSection(JwtSettings.Section).Bind(jwtSettings);
 builder.Services.AddSingleton(jwtSettings);
 
 builder.Services.ConfigureJWT(jwtSettings);
+
+builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 // repozyutoria
 
@@ -40,10 +47,13 @@ builder.Services.AddScoped<IGenericRepository<GameDeveloper, int>, EFGenericRepo
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IVideoGameCsvImportService, VideoGameCsvImportService>();
-// builder.Services.AddScoped<IAdminVideoGameService, AdminVideoGameService>();
-// builder.Services.AddScoped<IUserVideoGameService, UserVideoGameService>();
-builder.Services.AddScoped<IDeveloperPublisherService<GameDeveloper>, DeveloperService>();
-builder.Services.AddScoped<IDeveloperPublisherService<GamePublisher>, PublisherService>();
+builder.Services.AddScoped<IAdminVideoGameService, AdminVideoGameService>();
+builder.Services.AddScoped<IUserVideoGameService, UserVideoGameService>();
+builder.Services.AddScoped<IGenericNameService<GameTitle>, GenericNameService<GameTitle>>();
+builder.Services.AddScoped<IGenericNameService<GameConsole>, GenericNameService<GameConsole>>();
+builder.Services.AddScoped<IGenericNameService<GameGenre>, GenericNameService<GameGenre>>();
+builder.Services.AddScoped<IGenericNameService<GameDeveloper>, GenericNameService<GameDeveloper>>();
+builder.Services.AddScoped<IGenericNameService<GamePublisher>, GenericNameService<GamePublisher>>();
 
 // Mapper
 
@@ -98,12 +108,12 @@ builder.Services.AddSwaggerGen(opt =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

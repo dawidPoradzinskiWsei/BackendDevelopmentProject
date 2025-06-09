@@ -48,12 +48,12 @@ public class AuthService : IAuthService
             throw new InvalidOperationException(string.Join(", ", result.Errors.Select(e => e.Description)));
         }
 
-        if (!await _roleManager.RoleExistsAsync(dto.Role))
+        if (!await _roleManager.RoleExistsAsync(dto.Role.ToString()))
         {
-            await _roleManager.CreateAsync(new UserRole { Name = dto.Role });
+            await _roleManager.CreateAsync(new UserRole { Name = dto.Role.ToString() });
         }
 
-        await _userManager.AddToRoleAsync(user, dto.Role);
+        await _userManager.AddToRoleAsync(user, dto.Role.ToString());
         return await CreateToken(user);
     }
     

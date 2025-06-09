@@ -6,7 +6,7 @@ public class FilterDeveloperByNameSpec : Specification<GameDeveloper>
     {
         if (!string.IsNullOrWhiteSpace(parameters.Name))
         {
-            Criteria = x => x.Name.Contains(parameters.Name);
+            Criteria = x => x.Name.Contains(parameters.Name, StringComparison.OrdinalIgnoreCase);
         }
 
         Skip = (parameters.PageNumber - 1) * parameters.PageSize;

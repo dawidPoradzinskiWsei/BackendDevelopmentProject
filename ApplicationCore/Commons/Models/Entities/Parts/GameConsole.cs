@@ -2,8 +2,7 @@ using ApplicationCore.Commons.Interfaces;
 
 namespace ApplicationCore.Commons.Models.Parts;
 
-public class GameConsole : IIdentity<int>
+public class GameConsole : NameEntity
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+
 }

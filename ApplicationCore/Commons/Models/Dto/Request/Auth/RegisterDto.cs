@@ -1,4 +1,6 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using ApplicationCore.Commons.Models;
 
 namespace ApplicationCore.Dto.Request.Auth;
@@ -14,5 +16,6 @@ public class RegisterDto
     [Length(8,20)]
     public string Password { get; set; } = string.Empty;
     [EnumDataType(typeof(UserEnumRole))]
-    public string Role { get; set; } = "USER";
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public UserEnumRole Role { get; set; }
 }

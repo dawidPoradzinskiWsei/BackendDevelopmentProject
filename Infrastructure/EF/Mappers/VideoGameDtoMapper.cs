@@ -1,4 +1,5 @@
 using ApplicationCore.Commons.Models;
+using ApplicationCore.Dto.Request.VideoGame;
 using ApplicationCore.Dto.Response;
 using AutoMapper;
 
