@@ -1,12 +1,13 @@
 using ApplicationCore.Commons.Interfaces.Repositories;
 using ApplicationCore.Commons.Interfaces.Services.Developer;
 using ApplicationCore.Commons.Models.Parts;
+using Microsoft.EntityFrameworkCore;
 
-public class DeveloperPublisherService : IDeveloperPublisherService<GameDeveloper>
+public class DeveloperService : IDeveloperPublisherService<GameDeveloper>
 {
     private readonly IGenericRepository<GameDeveloper, int> _repo;
 
-    public DeveloperPublisherService(IGenericRepository<GameDeveloper, int> repo)
+    public DeveloperService(IGenericRepository<GameDeveloper, int> repo)
     {
         _repo = repo;
     }
@@ -17,7 +18,7 @@ public class DeveloperPublisherService : IDeveloperPublisherService<GameDevelope
 
         if (developer is not null)
         {
-            return null;
+            throw new EntityAlreadyExistException();
         }
 
         var newDeveloper = new GameDeveloper { Name = name };
@@ -33,7 +34,7 @@ public class DeveloperPublisherService : IDeveloperPublisherService<GameDevelope
 
         if (developer is null)
         {
-            return false;
+            throw new KeyNotFoundException();
         }
 
         await _repo.RemoveAsync(developer);
@@ -43,7 +44,14 @@ public class DeveloperPublisherService : IDeveloperPublisherService<GameDevelope
 
     public async Task<GameDeveloper> GetByIdAsync(int id)
     {
-        return await _repo.FindByIdAsync(id);
+        var result = await _repo.FindByIdAsync(id);
+
+        if (result is null)
+        {
+            throw new KeyNotFoundException();
+        }
+
+        return result;
     }
 
     public async Task<PagedList<GameDeveloper>> GetFilteredAsync(NameParameters parameters)
@@ -61,7 +69,7 @@ public class DeveloperPublisherService : IDeveloperPublisherService<GameDevelope
 
         if (developer is null)
         {
-            return false;
+            throw new KeyNotFoundException();
         }
 
         developer.Name = name;

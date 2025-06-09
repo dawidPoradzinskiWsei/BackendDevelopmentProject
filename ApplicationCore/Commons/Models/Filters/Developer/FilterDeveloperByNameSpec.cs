@@ -4,7 +4,10 @@ public class FilterDeveloperByNameSpec : Specification<GameDeveloper>
 {
     public FilterDeveloperByNameSpec(NameParameters parameters)
     {
-        Criteria = x => x.Name == parameters.Name;
+        if (!string.IsNullOrWhiteSpace(parameters.Name))
+        {
+            Criteria = x => x.Name.Contains(parameters.Name);
+        }
 
         Skip = (parameters.PageNumber - 1) * parameters.PageSize;
         Take = parameters.PageSize;

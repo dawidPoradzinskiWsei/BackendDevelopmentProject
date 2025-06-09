@@ -17,7 +17,7 @@ public class PublisherService : IDeveloperPublisherService<GamePublisher>
 
         if (publisher is null)
         {
-            return false;
+            throw new KeyNotFoundException();
         }
 
         await _repo.RemoveAsync(publisher);
@@ -27,7 +27,14 @@ public class PublisherService : IDeveloperPublisherService<GamePublisher>
 
     public async Task<GamePublisher> GetByIdAsync(int id)
     {
-        return await _repo.FindByIdAsync(id);
+        var result = await _repo.FindByIdAsync(id);
+
+        if (result is null)
+        {
+            throw new KeyNotFoundException();
+        }
+
+        return result;
     }
 
     public async Task<bool> UpdateByIdAsync(int id, string name)
@@ -36,7 +43,7 @@ public class PublisherService : IDeveloperPublisherService<GamePublisher>
 
         if (publisher is null)
         {
-            return false;
+            throw new KeyNotFoundException();
         }
 
         publisher.Name = name;
@@ -59,7 +66,7 @@ public class PublisherService : IDeveloperPublisherService<GamePublisher>
 
         if (publisher is not null)
         {
-            return null;
+            throw new EntityAlreadyExistException();
         }
 
         var newPublisher = new GamePublisher { Name = name };
