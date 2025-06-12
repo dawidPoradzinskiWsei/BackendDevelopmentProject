@@ -17,6 +17,9 @@ public class VideoGameDtoMapper : Profile
             .ForMember(dest => dest.Sales, opt => opt.MapFrom(src => src.Sales))
             .ForMember(dest => dest.Score, opt => opt.MapFrom(src => src.CriticScore))
             .ForMember(dest => dest.ReleaseDate, opt => opt.MapFrom(src => src.ReleaseDate))
-            .ForMember(dest => dest.LastUpdateDate, opt => opt.MapFrom(src => src.LastUpdate));
+            .ForMember(dest => dest.LastUpdateDate, opt => opt.MapFrom(src => src.LastUpdate))
+            .ForMember(dest => dest.AverageUserScore, opt => opt.MapFrom(src => src.UserScores.Count > 0 
+                ? src.UserScores.Average(us => us.Score) 
+                : 0));
     }
 }

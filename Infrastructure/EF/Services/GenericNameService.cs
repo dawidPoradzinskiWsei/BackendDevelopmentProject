@@ -16,6 +16,15 @@ public class GenericNameService<T> : IGenericNameService<T>
 
     public async Task<T> CreateAsync(string name)
     {
+        var spec = new NameSpecification<T>(new NameParameters { Name = name });
+
+        var result = _repository.FindBySpecification(spec);
+
+        if (result.Count() != 0)
+        {
+            throw new InvalidOperationException();
+        }
+
         var entity = new T();
 
         entity.Name = name;

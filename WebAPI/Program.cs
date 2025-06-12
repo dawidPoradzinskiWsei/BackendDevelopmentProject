@@ -42,6 +42,7 @@ builder.Services.AddScoped<IGenericRepository<GameConsole, int>, EFGenericReposi
 builder.Services.AddScoped<IGenericRepository<GameGenre, int>, EFGenericRepository<GameGenre, int>>();
 builder.Services.AddScoped<IGenericRepository<GamePublisher, int>, EFGenericRepository<GamePublisher, int>>();
 builder.Services.AddScoped<IGenericRepository<GameDeveloper, int>, EFGenericRepository<GameDeveloper, int>>();
+builder.Services.AddScoped<IUserScoreRepository, UserScoreRepository>();
 
 // seriwsy
 
@@ -121,3 +122,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

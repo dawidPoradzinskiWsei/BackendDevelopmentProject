@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using ApplicationCore.Commons.Interfaces.Services.VideoGame.Admin;
 using ApplicationCore.Commons.Models;
 using ApplicationCore.Dto.Request.VideoGame;
@@ -114,14 +115,14 @@ public class VideoGameController : ControllerBase
     {
 
         try
-            {
-                var updatedGame = await _adminService.UpdateByIdAsync(id, game);
-                return Ok(updatedGame);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound();
-            }
+        {
+            var updatedGame = await _adminService.UpdateByIdAsync(id, game);
+            return Ok(updatedGame);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
 
     }
 
@@ -143,5 +144,140 @@ public class VideoGameController : ControllerBase
             return NotFound();
         }
 
+    }
+
+    [HttpPost]
+    [Authorize]
+    [Route("{id}/score")]
+    [SwaggerOperation(Summary = "Add a score to a video game", Description = "Add a score for a video game by its ID. Need JWT")]
+    [Consumes("application/json")]
+    [ProducesResponseType(typeof(UserScore), StatusCodes.Status202Accepted)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<UserScore>> AddScoreAsync(int id, [FromBody] AddUserScoreDto dto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var userIdClaim = User.FindFirst("userId");
+
+        var userId = int.Parse(userIdClaim.Value);
+
+        try
+        {
+            var result = await _userService.AddUserScoreAsync(id, userId, dto.Score);
+            return Accepted(result);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException)
+        {
+            return BadRequest("You have already added a score for this game.");
+        }
+
+
+
+    }
+
+    [HttpGet]
+    [Route("{id}/score")]
+    [Authorize]
+    [SwaggerOperation(Summary = "Get a user's score for a video game", Description = "Retrieve the score a user has given to a video game by its ID. Need JWT")]
+    [ProducesResponseType(typeof(UserScore), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<UserScore>> GetUserScoreAsync(int id)
+    {
+        var userIdClaim = User.FindFirst("userId");
+
+        var userId = int.Parse(userIdClaim.Value);
+
+
+        var score = await _userService.GetUserScoreAsync(id, userId);
+
+        if (score is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(score);
+            
+    }
+
+    [HttpGet]
+    [Route("{id}/score/all")]
+    [SwaggerOperation(Summary = "Get all scores for a video game", Description = "Retrieve all scores given by users for a video game by its IDT")]
+    [ProducesResponseType(typeof(PagedList<UserScore>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<PagedList<UserScore>>> GetAllUserScoresAsync(int id, [FromQuery] PaginationParameters parameters)
+    {
+        var scores = await _userService.GetAllUserScoresAsync(id, parameters);
+
+        var metadata = new
+        {
+            scores.TotalCount,
+            scores.PageSize,
+            scores.CurrentPage,
+            scores.TotalPages,
+            scores.HasNext,
+            scores.HasPrevious
+        };
+
+        Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+        return Ok(scores);
+    }
+
+    [HttpPut]
+    [Route("{id}/score")]
+    [Authorize]
+    [SwaggerOperation(Summary = "Update a user's score for a video game", Description = "Update the score a user has given to a video game by its ID. Need JWT")]
+    [Consumes("application/json")]
+    [ProducesResponseType(typeof(UserScore), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<UserScore>> UpdateUserScoreAsync(int id, [FromBody] AddUserScoreDto dto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var userIdClaim = User.FindFirst("userId");
+        var userId = int.Parse(userIdClaim.Value);
+
+        try
+        {
+            var updatedScore = await _userService.UpdateUserScoreAsync(id, userId, dto.Score);
+            return Ok(updatedScore);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+    }
+
+    [HttpDelete]
+    [Route("{id}/score")]
+    [Authorize]
+    [SwaggerOperation(Summary = "Delete a user's score for a video game", Description = "Delete the score a user has given to a video game by its ID. Need JWT")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteUserScoreAsync(int id)
+    {
+        var userIdClaim = User.FindFirst("userId");
+        var userId = int.Parse(userIdClaim.Value);
+
+        try
+        {
+            await _userService.DeleteUserScoreAsync(id, userId);
+            return NoContent();
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
     }
 }

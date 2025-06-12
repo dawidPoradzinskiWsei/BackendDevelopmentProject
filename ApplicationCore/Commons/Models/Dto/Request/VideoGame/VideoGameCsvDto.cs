@@ -18,12 +18,12 @@ public class VideoGameRequestDto
     public string? Developer { get; set; }
     [Required]
     [Range(0, 10)]
-    public decimal? CriticScore { get; set; }
-    public decimal? TotalSales { get; set; }
-    public decimal? NaSales { get; set; }
-    public decimal? JpSales { get; set; }
-    public decimal? PalSales { get; set; }
-    public decimal? OtherSales { get; set; }
+    public float? CriticScore { get; set; }
+    public float? TotalSales { get; set; }
+    public float? NaSales { get; set; }
+    public float? JpSales { get; set; }
+    public float? PalSales { get; set; }
+    public float? OtherSales { get; set; }
     public DateOnly? ReleaseDate { get; set; }
     public DateOnly? LastUpdate { get; set; }
 }

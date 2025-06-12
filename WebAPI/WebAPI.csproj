@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     <Content Include="..\Infrastructure\Migrations\**\*" CopyToOutputDirectory="Always" />
+    <Content Include="VideoGame.csv" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
 </Project>

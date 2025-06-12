@@ -1,4 +1,4 @@
-public abstract class PaginationParameters
+public class PaginationParameters
 {
     const int maxPageSize = 50;
     public int PageNumber { get; set; } = 1;

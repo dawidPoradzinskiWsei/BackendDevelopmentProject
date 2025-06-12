@@ -64,6 +64,7 @@ public class AuthService : IAuthService
         return new JwtBuilder()
             .WithAlgorithm(new HMACSHA256Algorithm())
             .WithSecret(Encoding.UTF8.GetBytes(_jwtSettings.Secret))
+            .AddClaim("userId", user.Id)
             .AddClaim(JwtRegisteredClaimNames.Name, user.UserName)
             .AddClaim(JwtRegisteredClaimNames.Email, user.Email)
             .AddClaim(JwtRegisteredClaimNames.Exp, DateTimeOffset.UtcNow.AddMinutes(5).ToUnixTimeSeconds())

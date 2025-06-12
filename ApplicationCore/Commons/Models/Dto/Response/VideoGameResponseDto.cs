@@ -12,7 +12,9 @@ public class VideoGameResponseDto
     public string? Developer { get; set; }
     public string? Publisher { get; set; }
     public GameSales? Sales { get; set; }
-    public decimal? Score { get; set; }
+    public float? Score { get; set; }
     public DateOnly? ReleaseDate { get; set; }
     public DateOnly? LastUpdateDate { get; set; }
+    public float AverageUserScore { get; set; }
+    
 }

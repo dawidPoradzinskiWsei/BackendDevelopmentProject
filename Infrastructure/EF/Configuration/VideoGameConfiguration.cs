@@ -32,5 +32,11 @@ public class VideoGameConfiguration : IEntityTypeConfiguration<VideoGame>
         builder.Property(v => v.CriticScore).HasColumnType("float");
         builder.Property(v => v.ReleaseDate).IsRequired(false);
         builder.Property(v => v.LastUpdate).IsRequired(false);
+
+        builder.HasMany(v => v.UserScores)
+            .WithOne(r => r.VideoGame)
+            .HasForeignKey(r => r.VideoGameId)
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

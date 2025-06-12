@@ -10,5 +10,6 @@ public abstract class VideoGameBaseIncludesSpec : Specification<VideoGame>
         Includes.Add(vg => vg.Developer);
         Includes.Add(vg => vg.Publisher);
         Includes.Add(vg => vg.Image);
+        Includes.Add(vg => vg.UserScores);
     }
 }

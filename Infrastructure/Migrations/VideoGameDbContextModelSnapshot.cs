@@ -115,7 +115,7 @@ namespace Infrastructure.Migrations
                     b.Property<int?>("ConsoleId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal?>("CriticScore")
+                    b.Property<float?>("CriticScore")
                         .HasColumnType("float");
 
                     b.Property<int?>("Developerid")
@@ -347,6 +347,22 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
+            modelBuilder.Entity("UserScore", b =>
+                {
+                    b.Property<int>("VideoGameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("VideoGameId", "UserId");
+
+                    b.ToTable("UserScore");
+                });
+
             modelBuilder.Entity("ApplicationCore.Commons.Models.VideoGame", b =>
                 {
                     b.HasOne("ApplicationCore.Commons.Models.Parts.GameConsole", "Console")
@@ -383,24 +399,24 @@ namespace Infrastructure.Migrations
                             b1.Property<int>("VideoGameId")
                                 .HasColumnType("INTEGER");
 
-                            b1.Property<decimal?>("JpSales")
-                                .HasColumnType("TEXT")
+                            b1.Property<float?>("JpSales")
+                                .HasColumnType("REAL")
                                 .HasColumnName("JpSales");
 
-                            b1.Property<decimal?>("NaSales")
-                                .HasColumnType("TEXT")
+                            b1.Property<float?>("NaSales")
+                                .HasColumnType("REAL")
                                 .HasColumnName("NaSales");
 
-                            b1.Property<decimal?>("OtherSales")
-                                .HasColumnType("TEXT")
+                            b1.Property<float?>("OtherSales")
+                                .HasColumnType("REAL")
                                 .HasColumnName("OtherSales");
 
-                            b1.Property<decimal?>("PalSales")
-                                .HasColumnType("TEXT")
+                            b1.Property<float?>("PalSales")
+                                .HasColumnType("REAL")
                                 .HasColumnName("PalSales");
 
-                            b1.Property<decimal?>("TotalSales")
-                                .HasColumnType("TEXT")
+                            b1.Property<float?>("TotalSales")
+                                .HasColumnType("REAL")
                                 .HasColumnName("TotalSales");
 
                             b1.HasKey("VideoGameId");
@@ -475,6 +491,22 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("UserScore", b =>
+                {
+                    b.HasOne("ApplicationCore.Commons.Models.VideoGame", "VideoGame")
+                        .WithMany("UserScores")
+                        .HasForeignKey("VideoGameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("VideoGame");
+                });
+
+            modelBuilder.Entity("ApplicationCore.Commons.Models.VideoGame", b =>
+                {
+                    b.Navigation("UserScores");
                 });
 #pragma warning restore 612, 618
         }

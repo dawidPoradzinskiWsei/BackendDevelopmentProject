@@ -33,11 +33,11 @@ public static class Configure
 
                 if (dbType == "sqlite")
                 {
-                    options.UseSqlite(configuration.GetConnectionString("Sqlite"));
+                    options.UseSqlite(configuration.GetConnectionString("sqlite"));
                 }
                 else if (dbType == "sqlserver")
                 {
-                    options.UseSqlServer(configuration.GetConnectionString("MySql"));
+                    options.UseSqlServer(configuration.GetConnectionString("sqlserver"));
 
                 }
 
@@ -51,6 +51,7 @@ public static class Configure
                 options.Password.RequiredLength = 8;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Lockout.MaxFailedAccessAttempts = 3;
+                options.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<VideoGameDbContext>()
             .AddDefaultTokenProviders();
@@ -58,10 +59,11 @@ public static class Configure
         using (var scope = services.BuildServiceProvider().CreateScope())
         {
             var dbContext = scope.ServiceProvider.GetRequiredService<VideoGameDbContext>();
-            if (!dbContext.Database.EnsureCreated())
-            {
-                dbContext.Database.Migrate();
-            }
+            dbContext.Database.EnsureCreated();
+            // if (!dbContext.Database.EnsureCreated())
+            // {
+            // dbContext.Database.Migrate();
+            // }
 
         }
     }

@@ -2,10 +2,10 @@ namespace ApplicationCore.Commons.Models.Parts;
 
 public class GameSales
 {
-    public decimal? TotalSales { get; set; }
-    public decimal? NaSales { get; set; }
-    public decimal? JpSales { get; set; }
+    public float? TotalSales { get; set; }
+    public float? NaSales { get; set; }
+    public float? JpSales { get; set; }
 
-    public decimal? PalSales { get; set; }
-    public decimal? OtherSales { get; set; }
+    public float? PalSales { get; set; }
+    public float? OtherSales { get; set; }
 }
