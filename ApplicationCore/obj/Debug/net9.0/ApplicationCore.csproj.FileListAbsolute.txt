@@ -1,0 +1,12 @@
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\bin\Debug\net9.0\ApplicationCore.deps.json
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\bin\Debug\net9.0\ApplicationCore.dll
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\bin\Debug\net9.0\ApplicationCore.pdb
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.AssemblyInfoInputs.cache
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.AssemblyInfo.cs
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.csproj.CoreCompileInputs.cache
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.sourcelink.json
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.dll
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\refint\ApplicationCore.dll
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ApplicationCore.pdb
+D:\Programowanie\DrugiSposobDotnet\ApplicationCore\obj\Debug\net9.0\ref\ApplicationCore.dll

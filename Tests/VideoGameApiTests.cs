@@ -62,12 +62,23 @@ public class VideoGameApiTests : IClassFixture<WebApplicationFactory<Program>>, 
             UserName = "abc"
         });
 
-        var data = await response.Content.ReadFromJsonAsync<Dictionary<string, string>>();
-        data.Should().NotBeNull();
-        data.TryGetValue("token", out var token).Should().BeTrue();
+        string token = "";
+        if (response.IsSuccessStatusCode)
+        {
+            var data = await response.Content.ReadFromJsonAsync<Dictionary<string, string>>();
+            data.Should().NotBeNull();
+            data.TryGetValue("token", out token).Should().BeTrue();
+        }
+        else
+        {
+            response = await _client.PostAsJsonAsync("/v1/auth/login", new LoginDTO { Email = "abc@abc.com", Password = "1qaz@WSX" });
+
+            var data = await response.Content.ReadFromJsonAsync<Dictionary<string, string>>();
+            data.Should().NotBeNull();
+            data.TryGetValue("token", out token).Should().BeTrue();
+        }
 
         _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-
     }
 
     public Task DisposeAsync()
@@ -296,5 +307,68 @@ public class VideoGameApiTests : IClassFixture<WebApplicationFactory<Program>>, 
         data = await response.Content.ReadFromJsonAsync<VideoGameResponseDto>();
 
         data.Should().NotBeNull();
+
+        // Change developer of videoGame and check if generic still exist
+
+        var oldDeveloper = videoGame.Developer.Name;
+        videoGame.Developer.Name = "Completly new developer";
+
+        response = await _client.PutAsJsonAsync($"v1/videogame/{videoId}", new VideoGameRequestDto { Developer = videoGame.Developer.Name });
+
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
+
+        response = await _client.GetAsync($"v1/videogame?developer={oldDeveloper}");
+
+        videoGamesList = await response.Content.ReadFromJsonAsync<List<VideoGameResponseDto>>();
+
+        videoGamesList!.Count.Should().Be(0);
+
+        response = await _client.GetAsync($"v1/gamedeveloper?name={oldDeveloper}");
+
+        list = await response.Content.ReadFromJsonAsync<List<NameEntity>>();
+
+        list!.Count.Should().BeGreaterThan(0);
+
+        // Add user score
+
+        response = await _client.PostAsJsonAsync($"v1/videogame/{videoId}/score", new AddUserScoreDto { Score = 10 });
+
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.Accepted);
+
+        response = await _client.GetAsync($"v1/videogame/{videoId}");
+
+        response.EnsureSuccessStatusCode();
+
+        data = await response.Content.ReadFromJsonAsync<VideoGameResponseDto>();
+
+        data.Should().NotBeNull();
+
+        data.AverageUserScore.Should().Be(10);
+
+        // Delete user score
+
+        response = await _client.DeleteAsync($"v1/videogame/{videoId}/score");
+
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.NoContent);
+
+        response = await _client.GetAsync($"v1/videogame/{videoId}");
+
+        response.EnsureSuccessStatusCode();
+
+        data = await response.Content.ReadFromJsonAsync<VideoGameResponseDto>();
+
+        data!.AverageUserScore.Should().Be(0);
+
+        // Delete videoGame
+
+        response = await _client.DeleteAsync($"v1/videogame/{videoId}");
+
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.NoContent);
+
+        response = await _client.GetAsync("v1/videogame");
+
+        videoGamesList = await response.Content.ReadFromJsonAsync<List<VideoGameResponseDto>>();
+
+        videoGamesList!.Count.Should().Be(0);
     }
 }

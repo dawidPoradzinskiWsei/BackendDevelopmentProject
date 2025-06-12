@@ -30,11 +30,11 @@ dotnet publish -c Release -o ../publish
 
 W folderze publish przeprowadź jeszcze raz konfiguracje bazy danych i:
 
-1. Uruchom plik WebAPI.exe
+2.1 Uruchom plik WebAPI.exe
 
 ALBO
 
-2. Uruchom komendę:
+2.2 Uruchom komendę:
 ```bash
 dotnet WebAPI.dll
 ```
@@ -46,3 +46,10 @@ dotnet WebAPI.dll
 ## Import danych
 
 Wyślij plik z danymi poprzez endpoint API (dostępny na swaggerze) `v1/videogame/upload`.
+
+## Testy
+
+Aby uruchomić tests przejdź do folderu `Tests` i uruchom komendę:
+```bash
+dotnet test
+```
